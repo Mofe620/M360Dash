@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;600;800&display=swap');
+:root {
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 0%);
+    --light-grey: #e5e6e7;
+    --dark-grey: hsl(214,18%,20%);
+}
+header nav {
+    box-shadow: 0px 1px 1px var(--light-grey);
+}
+header .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 1em;
+    margin-bottom: 1em;
+    padding-top: 1em;
+}
+.navbar-brand {
+    margin-left: 1em;
+}
+body {
+    background-color: var(--light-grey) !important;
+    font-family: 'Lexend Deca' !important;
+    overflow: visible;
+    max-width: 1440px;
+}
+.sidebar .nav-item {
+    text-decoration: none;
+    color: var(--white) !important;
+    font-weight: 400;
+    margin-left: 1em;
+}
+.sidebar .nav-link {
+    color: var(--white);
+    opacity: 0.8 !important;
+}
+.nav-link:hover, .nav-link.active {
+    opacity: 1;
+    cursor: pointer;
+}
+.sidebar {
+    position: fixed;
+    top: 5em !important;
+    left: 0;
+    bottom: 0;
+    width: 15em;
+    z-index: 10;
+    background-color: hsl(214,18%,20%);
+    padding: 1.5em 0;
+    animation: showBar 0.5s ease-in-out;
+    transition: 0.8s ease-in-out;
+}
+.sidebar.hide {
+    animation: removeBar 1s ease-in-out;
+    opacity: 0;
+}
+#hideBar {
+    transform: scale(1.5);
+}
+@keyframes showBar {
+    0% {
+        transform: translateX(-18%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@keyframes removeBar {
+    0% {
+        transform: translateX(0);
+        /* opacity: 1; */
+    }
+    100% {
+        transform: translateX(-18%);
+        /* opacity: 0; */
+    }
+}
+.main-area {
+    width: 70%;
+    height: 100%;
+    /* background-color: rgb(104, 105, 105); */
+    position: absolute;
+    left: 18em;
+    top: 7em;
+    margin: 0 auto;
+    padding: 1em;
+}
+.main-area.expand {
+    left: 2em;
+    width: 90%;
+}
+.card {
+    transition: opacity 500ms;
+}
+.row {
+    margin-bottom: 2em;
+}
+.form-group {
+    margin-bottom: 1em;
+}
+select {
+    display: block;
+}
+.btn-remove {
+    cursor: pointer;
+}
+table {
+    padding: 2em;
+    background-color: blueviolet;
+}
+/* MODAL */
+/* The Modal (background) */
+#myModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    /* margin: auto 80%;  */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40% !important; /* Could be more or less, depending on screen size */
+    height: 30em;
+    overflow: auto;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+/* MEDIA QUERIES */
+@media (max-width:768px) {
+    .sidebar .nav-item {
+        display: none;
+    }
+    .sidebar {
+        width: 5em;
+    }
+    .sidebar .nav-link {
+        padding-left: 1.5em;
+        margin-bottom: 1em;
+    }
+    .main-area {
+        left: 7em;
+        width: 75%;
+    }
+    table {
+        display: table;
+        overflow-x:scroll;
+    }
+    table .btn span {
+        display: none;
+    }
+    table .btn {
+        padding: 0em;
+    }
+    table i {
+        transform: scale(0.5);
+    }
+}
+@media (max-width:576px) {
+    #hideBar {
+        display: none;
+    }
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: -70%;
+        width: 20em;
+        height: 5em;
+        margin: auto;
+        z-index: 10;
+        background-color: hsl(214,18%,20%);
+        padding: 1.5em 0;
+        animation: none;
+        border-radius: 1em;
+        box-shadow: 0px 2px 4px #aaa;
+    }
+    .sidebar nav {
+        flex-direction: row !important;
+        justify-content: space-evenly;
+    }
+    .main-area {
+        left: 5%;
+        width: 90%;
+        margin: auto;
+    }
+}
